@@ -33,8 +33,8 @@ $res=mysqli_query($con,$qu);
                     </td>
                     <td class="hidden-phone"><?php echo $data['role_name'] ?></td>
                     <td>
-                      <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                      <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                      <a class="btn btn-primary btn-xs" href="Role_update.php?x=<?php echo $data['id'] ?>"><i class="fa fa-pencil"></i></a>
+                      <a class="btn btn-danger btn-xs" href="Role_delete.php?x=<?php echo $data['id'] ?>" ><i class="fa fa-trash-o "></i></a>
                     </td>
                   </tr>
              <?php } ?>
