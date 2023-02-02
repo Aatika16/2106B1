@@ -261,7 +261,7 @@
               </a>
             <ul class="sub">
               <li><a href="Role_add.php">Add a new Role</a></li>
-              <li><a href="Role_show.php">Show Alll Roles</a></li>
+              <li><a href="Role_show.php">Show All Roles</a></li>
             </ul>
           </li>
           <li class="sub-menu">
@@ -270,8 +270,8 @@
               <span>User</span>
               </a>
             <ul class="sub">
-              <li><a href="general.html">Add a new Role</a></li>
-              <li><a href="buttons.html">Show Alll Roles</a></li>
+              <li><a href="User_add.php">Add a new User</a></li>
+              <li><a href="User_show.php">Show All Users</a></li>
             </ul>
           </li>
           <li class="sub-menu">
