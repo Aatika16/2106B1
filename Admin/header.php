@@ -7,33 +7,6 @@ if(!(isset($_SESSION['USER'])) ){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -326,8 +299,8 @@ if(!(isset($_SESSION['USER'])) ){
               <span>Trainers</span>
               </a>
             <ul class="sub">
-              <li><a href="general.html">Add a new Role</a></li>
-              <li><a href="buttons.html">Show Alll Roles</a></li>
+              <li><a href="trainer_add.php">Add a new Trainer</a></li>
+              <li><a href="trainer_show.php">Show Alll Trainer</a></li>
             </ul>
           </li>
           <li class="sub-menu">
