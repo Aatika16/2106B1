@@ -43,8 +43,8 @@ $res=mysqli_query($con,$qu);
                       <a href="basic_table.html#"><img src="<?php echo $data['Trainer_Image'] ?>" height=100/></a>
                     </td>
                     <td>
-                      <a class="btn btn-primary btn-xs" href="Trainer_update.php?x=<?php echo $data['id'] ?>"><i class="fa fa-pencil"></i></a>
-                      <a class="btn btn-danger btn-xs" href="Trainer_delete.php?x=<?php echo $data['id'] ?>" ><i class="fa fa-trash-o "></i></a>
+                      <a class="btn btn-primary btn-xs" href="trainer_update.php?x=<?php echo $data['id'] ?>"><i class="fa fa-pencil"></i></a>
+                      <a class="btn btn-danger btn-xs" href="trainer_delete.php?x=<?php echo $data['id'] ?>" ><i class="fa fa-trash-o "></i></a>
                     </td>
                   </tr>
              <?php } ?>
