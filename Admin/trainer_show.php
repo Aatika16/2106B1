@@ -42,10 +42,12 @@ $res=mysqli_query($con,$qu);
                     <td>
                       <a href="basic_table.html#"><img src="<?php echo $data['Trainer_Image'] ?>" height=100/></a>
                     </td>
+                    <?php if(isset($_SESSION['ADMIN'])) {?>
                     <td>
                       <a class="btn btn-primary btn-xs" href="trainer_update.php?x=<?php echo $data['id'] ?>"><i class="fa fa-pencil"></i></a>
                       <a class="btn btn-danger btn-xs" href="trainer_delete.php?x=<?php echo $data['id'] ?>" ><i class="fa fa-trash-o "></i></a>
                     </td>
+                    <?php } ?>
                   </tr>
              <?php } ?>
                 </tbody>

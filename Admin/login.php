@@ -89,14 +89,22 @@ if(isset($_POST['btn'])){
   include('connection.php');
   $u=$_POST['Username'];
   $p=$_POST['Password'];
-  $q="select * from users where user_name='$u' and password='$p'";
+  //Admin
+  $q="select * from users where user_name='$u' and password='$p' and role_id_FK='1'";
   $run=mysqli_query($con,$q);
-  if(mysqli_num_rows($run)==0){
-    echo "<script>alert('Login Failed');</script>";
+  //Manager
+  $q1="select * from users where user_name='$u' and password='$p' and role_id_FK='12'";
+  $run1=mysqli_query($con,$q1);
+  if(mysqli_num_rows($run)>0){
+    $_SESSION['ADMIN']="$u";
+    echo "<script>alert('Admin Login Succesfull');window.location.href='Index.php'</script>";
+  }
+  else if(mysqli_num_rows($run1)>0){
+    $_SESSION['MANAGER']="$u";
+    echo "<script>alert('Manager Login Succesfull');window.location.href='Index.php'</script>";
   }
   else{
-    $_SESSION['USER']="$u";
-    echo "<script>alert('Login Succesfull');window.location.href='Index.php'</script>";
+    echo "<script>alert('Login Failed');</script>";
   }
 }
 

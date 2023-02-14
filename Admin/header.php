@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!(isset($_SESSION['USER'])) ){
+if(!(isset($_SESSION['ADMIN']) || isset($_SESSION['MANAGER']))){
   header('location:login.php');
 }
 ?>
@@ -252,10 +252,11 @@ if(!(isset($_SESSION['USER'])) ){
     <!--sidebar start-->
     <aside>
       <div id="sidebar" class="nav-collapse ">
-        <!-- sidebar menu start-->
+        <!-- FOR ADMIN-->
+        <?php if(isset($_SESSION['ADMIN'])) {?>
         <ul class="sidebar-menu" id="nav-accordion">
           <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
-          <h5 class="centered"><?php echo $_SESSION['USER']?></h5>
+          <h5 class="centered"><?php echo $_SESSION['ADMIN']?></h5>
           <li class="mt">
             <a class="active" href="index.php">
               <i class="fa fa-dashboard"></i>
@@ -336,6 +337,80 @@ if(!(isset($_SESSION['USER'])) ){
           </li>
       
         </ul>
+
+<?php } else if($_SESSION['MANAGER']) {?>
+  <!-- FOR MANAGER-->
+        <ul class="sidebar-menu" id="nav-accordion">
+          <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
+          <h5 class="centered"><?php echo $_SESSION['MANAGER']?></h5>
+          <li class="mt">
+            <a class="active" href="index.php">
+              <i class="fa fa-dashboard"></i>
+              <span>Dashboard</span>
+              </a>
+          </li>
+          
+       
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-desktop"></i>
+              <span>Categories</span>
+              </a>
+            <ul class="sub">
+              <li><a href="buttons.html">Show Alll Roles</a></li>
+            </ul>
+          </li>
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-desktop"></i>
+              <span>Trainers</span>
+              </a>
+            <ul class="sub">
+              <li><a href="trainer_show.php">Show Alll Trainer</a></li>
+            </ul>
+          </li>
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-desktop"></i>
+              <span>Pacakges</span>
+              </a>
+            <ul class="sub">
+              <li><a href="buttons.html">Show Alll Roles</a></li>
+            </ul>
+          </li>
+
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-desktop"></i>
+              <span>Equipements</span>
+              </a>
+            <ul class="sub">
+              <li><a href="general.html">Add a new Role</a></li>
+              <li><a href="buttons.html">Show Alll Roles</a></li>
+            </ul>
+          </li>
+
+
+
+          <li>
+            <a href="inbox.html">
+              <i class="fa fa-envelope"></i>
+              <span>Booking </span>
+              <span class="label label-theme pull-right mail-info">2</span>
+              </a>
+          </li>
+      
+        </ul>
+<?php } ?>
+
+
+
+
+
+
+
+
+        
         <!-- sidebar menu end-->
       </div>
     </aside>
