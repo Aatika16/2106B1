@@ -3,6 +3,11 @@ session_start();
 if(!(isset($_SESSION['ADMIN']) || isset($_SESSION['MANAGER']))){
   header('location:login.php');
 }
+
+function PageName() {
+  return substr($_SERVER["SCRIPT_NAME"],strrpos($_SERVER["SCRIPT_NAME"],"/")+1);
+}
+$current_page = PageName();
 ?>
 
 
@@ -258,14 +263,14 @@ if(!(isset($_SESSION['ADMIN']) || isset($_SESSION['MANAGER']))){
           <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
           <h5 class="centered"><?php echo $_SESSION['ADMIN']?></h5>
           <li class="mt">
-            <a class="active" href="index.php">
+            <a class="<?php echo $current_page == 'index.php' ? 'active' : Null ?>" href="index.php">
               <i class="fa fa-dashboard"></i>
               <span>Dashboard</span>
               </a>
           </li>
           
           <li class="sub-menu">
-            <a href="javascript:;">
+            <a href="javascript:;" class="<?php echo $current_page == 'cAT.php' ? 'active' : Null ?>">
               <i class="fa fa-desktop"></i>
               <span>Role</span>
               </a>
@@ -295,7 +300,7 @@ if(!(isset($_SESSION['ADMIN']) || isset($_SESSION['MANAGER']))){
             </ul>
           </li>
           <li class="sub-menu">
-            <a href="javascript:;">
+            <a href="javascript:;" class="<?php echo $current_page == 'trainer_show.php' || $current_page == 'trainer_add.php' ? 'active' : Null ?>">
               <i class="fa fa-desktop"></i>
               <span>Trainers</span>
               </a>
@@ -344,7 +349,7 @@ if(!(isset($_SESSION['ADMIN']) || isset($_SESSION['MANAGER']))){
           <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
           <h5 class="centered"><?php echo $_SESSION['MANAGER']?></h5>
           <li class="mt">
-            <a class="active" href="index.php">
+            <a class="<?php echo $current_page == 'index.php' ? 'active' : Null ?>" href="index.php">
               <i class="fa fa-dashboard"></i>
               <span>Dashboard</span>
               </a>
@@ -352,7 +357,7 @@ if(!(isset($_SESSION['ADMIN']) || isset($_SESSION['MANAGER']))){
           
        
           <li class="sub-menu">
-            <a href="javascript:;">
+            <a href="javascript:;" class="<?php echo $current_page == 'cat_show.php' ? 'active' : Null ?>">
               <i class="fa fa-desktop"></i>
               <span>Categories</span>
               </a>
@@ -361,7 +366,7 @@ if(!(isset($_SESSION['ADMIN']) || isset($_SESSION['MANAGER']))){
             </ul>
           </li>
           <li class="sub-menu">
-            <a href="javascript:;">
+            <a href="javascript:;" class="<?php echo $current_page == 'trainer_show.php' ? 'active' : Null ?>">
               <i class="fa fa-desktop"></i>
               <span>Trainers</span>
               </a>
